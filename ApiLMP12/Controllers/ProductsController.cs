@@ -29,12 +29,12 @@ namespace ApiLMP12.Controllers
 
         // /api/products/addProduct
         [HttpPost]
-        public ProductDTO addProduct([FromBody] ProductDTO newproduct)
+        public List<ProductDTO> addProduct([FromBody] ProductDTO newproduct)
         { 
             var products = new ProductSC().getAllProducts();
             products.Add(newproduct);
 
-            return newproduct;
+            return new ProductSC().getAllProducts(); 
         }
     }
 }
